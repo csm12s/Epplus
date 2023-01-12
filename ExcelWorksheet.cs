@@ -1929,6 +1929,8 @@ namespace OfficeOpenXml
                         for (var r = 0; r < rows; r++)
                         {
                             SetStyleInner(rowFrom + r, cseS.Column, cseS.Value._styleId);
+                            // Copy row height
+                            this.Row(rowFrom + r).Height = this.Row(copyStylesFromRow).Height;
                         }
                     }
                     var newOutlineLevel = this.Row(copyStylesFromRow + rows).OutlineLevel;
@@ -2223,7 +2225,7 @@ namespace OfficeOpenXml
                         newAddr = addr.AddRow(row, rows);
                         if (newAddr.Address != addr.Address)
                         {
-                        //    _mergedCells._cells.Insert(row, 0, rows, 0);
+                            //_mergedCells._cells.Insert(row, 0, rows, 0);
                             _mergedCells.SetIndex(newAddr, i);
                         }
                     }

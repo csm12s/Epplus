@@ -261,7 +261,8 @@ namespace OfficeOpenXml.Drawing
         }
         private void SetPosDefaults(Image image)
         {
-            EditAs = eEditAs.OneCell;
+            // Make image belongs to cell
+            EditAs = eEditAs.TwoCell;//EditAs = eEditAs.OneCell;
             SetPixelWidth(image.Width, image.HorizontalResolution);
             SetPixelHeight(image.Height, image.VerticalResolution);
         }
@@ -439,5 +440,5 @@ namespace OfficeOpenXml.Drawing
             _image.Dispose();
             _image = null;            
         }
-    }
+	}
 }

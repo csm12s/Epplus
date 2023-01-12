@@ -720,6 +720,51 @@ namespace OfficeOpenXml.Drawing
             SetPixelHeight(_height);
             _doNotAdjust = false;
         }
+
+        /// <summary>
+        /// Set position auto fit
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="col"></param>
+        /// <param name="offsetPixel"></param>
+        /// <exception cref="ArgumentException"></exception>
+        public void SetPosition(int row, int col, int offsetPixel)
+        {
+            if (offsetPixel < -60)
+            {
+                throw new ArgumentException("Minimum negative offset is -60.", nameof(offsetPixel));
+            }
+            _doNotAdjust = true;
+
+            if (_width == int.MinValue)
+            {
+                _width = GetPixelWidth();
+                _height = GetPixelHeight();
+            }
+
+            From.Row = row;
+            From.RowOff = offsetPixel * EMU_PER_PIXEL;
+            From.Column = col;
+            From.ColumnOff = offsetPixel * EMU_PER_PIXEL;
+
+            double rowH = (int)(GetRowHeight(row + 1) / 0.75);
+            double scale = (rowH - offsetPixel * 3) / _height;
+
+            ExcelWorksheet ws = _drawings.Worksheet;
+            decimal mdw = ws.Workbook.MaxFontWidth;
+            double colW = (int)decimal.Truncate(((256 * GetColumnWidth(col + 1) + decimal.Truncate(128 / (decimal)mdw)) / 256) * mdw);
+            double scaleWidth = (colW - offsetPixel * 3) / _width;
+
+            if (scaleWidth < scale)
+                scale = scaleWidth;
+
+			_width = (int)(_width * scale);
+			_height = (int)(_height * scale);
+
+            SetPixelWidth(_width);
+            SetPixelHeight(_height);
+            _doNotAdjust = false;
+        }
         /// <summary>
         /// Set size in Percent
         /// Note that resizing columns / rows after using this function will effect the size of the drawing
