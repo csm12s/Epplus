@@ -1,3 +1,6 @@
+Improvement: Make picture belongs to cell by default when add cell picture
+修改Epplus 4.5.3.3，保存图片时默认图片属于单元格 (Epplus 5.0 之后需要商业授权)
+
 # EPPlus 4.5.3.3
 
 ## Announcement: This is the last version of EPPlus under the LGPL License
@@ -187,7 +190,7 @@ Minor new features
 
 Beta 2 Changes
 * Fixed bug when using RepeatColumns & RepeatRows at the same time.
-* VBA project will be left untouched if it�s not accessed.
+* VBA project will be left untouched if it’s not accessed.
 * Fixed problem with strings on save.
 * Added locks to the cell store for access by multiple threads.
 * Implemented Indirect function
