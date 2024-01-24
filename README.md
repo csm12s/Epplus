@@ -1,4 +1,4 @@
-**EPPlusは、.NET Excelライブラリです**
+**.NET Excelライブラリに機能追加**
 
 新機能:
 
