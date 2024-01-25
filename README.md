@@ -22,6 +22,9 @@ https://github.com/csm12s/Blazor-Report-Editor.git
 6.Speed up copy row function
 
 
+修改Epplus 4.5.3.3 (LGPL)，保存图片时默认图片属于单元格 (Epplus 5.0 之后需要商业授权)
+
+
 # EPPlus 4.5.3.3
 
 ## Announcement: This is the last version of EPPlus under the LGPL License
