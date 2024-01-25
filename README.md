@@ -7,7 +7,7 @@
 
 （保存图片时默认图片属于单元格）
 
-拡張機能
+拡張機能:
 
 2.Custom functions for image auto fit in cell
 
