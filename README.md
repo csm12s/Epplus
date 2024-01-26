@@ -1,4 +1,4 @@
-**Excel ライブラリー Epplus 改善**
+**Excel ライブラリー Epplus 改善、高速化**
 
 新機能:
 
