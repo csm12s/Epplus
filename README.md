@@ -19,6 +19,8 @@
 
 https://github.com/csm12s/Blazor-Report-Editor.git
 
+高速化：
+
 6.Speed up copy row function
 
 
